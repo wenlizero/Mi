@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/comm.css">
+</head>
+<body class="register">
+<div class="container-fluid">
+  <nav class="navbar navbar-inverse">
+   <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">首页</a> -->
+      <a class="navbar-brand" href="#">
+      	<img src="img/logo.jpg" alt="logo" style="width: 25px">
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html">首页</a></li>
+        <li ><a href="product.html">商品详情</a></li>
+        <li ><a href="shoppingcart.html">购物车</a></li>
+        <li ><a href="usercenter.html">个人中心</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">购物车</a></li>
+            <li><a href="#">订单</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">代付款</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">已付款</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html">登录</a></li>
+        <li class="active"><a href="#">注册</a></li>
+      
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+ </nav>
+</div>
+<!-- 注册表单 -->
+<div class="container main">
+	<h1>register</h1>
+	<div class="regform form-group ">
+		<form class="f1">
+			<h2>注册账号</h2>
+            <input type="text" name="account" placeholder="请输入用户名" class="form-control" required>
+            <input type="password" name="pwd" placeholder="请输入密码" class="form-control" required>
+            <input type="password" name="rpwd" placeholder="请重新输入密码" class="form-control" required>
+            <input type="checkbox" name="agree">
+            <a href="#">我以阅读相关手续</a>
+           <input class="btn btn-primary btn-lg btn-block sub" type="button" value="注册" name="sub">
+		</form>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<p>&copy;2017 Company,Inc<span id="fontColorBlue">.Privaty</span><button class="pull-right btn btn-link" id="fontColorBlue">Back to Top</button></p>
+	</div>
+</footer>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript">
+    //
+    //用户名接口
+ 
+    var tag1=0;
+    var tag2=0;
+    var usname=$("input[name=account]");
+    var pwwd=$("input[name=pwd]");
+    $(usname).change(function(){
+         var uname=$(this).val();
+         $.get("./api/data.php","m=checkname&username="+uname,function(res){
+                if(res.status==1){
+                  $(usname).css("border","1px solid green");
+                  tag1=1;
+               }else{
+                 $(usname).css("border","1px solid red");
+                 tag1=0;
+              }
+              
+
+         },"json")
+    });
+    $("input[name=rpwd]").change(function(){
+      if($(pwwd).val() != $(this).val()){
+        $(this).css("border","1px solid red");
+        $(pwwd).css("border","1px solid red");
+        tag2=0;
+      }else{
+         $(this).css("border","1px solid green");
+        $(pwwd).css("border","1px solid green");
+        tag2=1;
+      }
+    });
+
+    $("input[name=sub]").click(function(){
+      if($("input[name=agree]").prop("checked")!=true ||tag1==0 || tag2==0){
+           alert("请检查数据是否规范");
+
+      }else{
+
+        $.get("./api/data.php","m=regist&username="+$(usname).val()+"&password="+$(pwwd).val(),function(da){
+                if(da.status==1){
+                  alert("注册成功");
+                  window.location.href="./login.html";
+                }else{
+                  alert("注册失败");
+                }
+        },"json")
+      }
+    })
+
+  </script>
+</body>
+</html>

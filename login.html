@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/comm.css">
+</head>
+<body class="login">
+ <div class="container-fluid">
+  <nav class="navbar navbar-inverse">
+   <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">首页</a> -->
+      <a class="navbar-brand" href="#">
+      	<img src="img/logo.jpg" alt="logo" style="width: 25px">
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html">首页</a></li>
+        <li ><a href="product.html">商品详情</a></li>
+        <li class="dropdown">
+          <a href="usercenter.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">购物车</a></li>
+            <li><a href="#">订单</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">代付款</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">已付款</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+     
+      <ul class="nav navbar-nav navb ar-right">
+        <li class="active"><a href="#">登录</a></li>
+        <li><a href="register.html">注册</a></li>
+      
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+ </nav>
+</div>
+<!-- 登录表单 -->
+<div class="container main">
+	<h1>login</h1>
+	<div class="loform form-group">
+		<form class="f2">
+			<h2>用户登录</h2>
+            <input type="text" class="form-control" placeholder="请输入用户名" required name="uname">
+            <input type="password" class="form-control" placeholder="请输入密码" required name="pwd">
+            <input type="checkbox" name="rember">
+            <a href="#">记住密码</a>
+            <input class="btn btn-primary btn-lg btn-block sub" type="button" value="登录" name="sub">
+		</form>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<p>&copy;2017 Company,Inc<span id="fontColorBlue">.Privaty</span><a href="#top" class="pull-right btn btn-link" id="fontColorBlue">Back to Top</a></p>
+	</div>
+</footer>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript">
+     var usname=$("input[name=uname]");
+     var pwd=$("input[name=pwd]");
+     var bt= $("input[name=sub]");
+     $(bt).click(function(){
+        if($(usname).val()==""){
+               alert("用户名不能为空");
+               $(usname).focus();
+               $(usname).css("border","1px solid red");
+        }else{
+          var username=$(usname).val();
+           if($(pwd).val()==""){
+             alert("密码不能为空");
+             $(pwd).focus();
+             $(pwd).css("border","1px solid red");
+              }else{
+                var password=$(pwd).val();
+                var isCk=$("input[name=rember]").prop("checked");
+                if(isCk){
+                  var data="username="+username+"&password="+password+"&isCk=yes";
+                }else{
+                  var data="username="+username+"&password="+password;
+                }
+                $.get("./api/data.php","m=login&"+data,function(res){
+                   if(res.status==1){
+                    alert("登录成功");
+                     window.location.href="./index.html";
+                   }else{
+                   alert("登录失败");
+                   
+               }
+          },'json')
+                }
+              }
+          $(usname).change(function(){
+            if($(this).val()==""){
+                alert("用户名不能为空");
+                $(this).css("border","1px solid red");
+            }else{
+              $(this).css("border","");
+            }
+          })
+          $(pwd).change(function(){
+             if($(this).val()==""){
+                alert("密码不能为空");
+                $(this).css("border","1px solid red");
+            }else{
+              $(this).css("border","");
+            }
+          })
+         
+     })
+
+
+       
+        var uname=getCookie("uname");
+        var pwd1=getCookie("pwd");
+        if(uname!="" && pwd!=""){
+          $(usname).val(decodeURI(uname));
+          $(pwd).val(pwd1);
+        }
+
+  // alert(document.cookie);
+  </script>
+</body>
+</html>

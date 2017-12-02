@@ -1,0 +1,128 @@
+.index .ma1{
+	margin-top: 20px;
+}
+/*product Start*/
+.product .m a{
+	width: 0px;
+	color: blue;
+}
+.product .fen ul{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	font-size: 0px;
+}
+.product .fen ul li{
+	font-size: 14px;
+	 margin-right: 10px;
+	 position: relative; 
+	 display: inline-block;
+}
+.product .fen ul li:after{
+	content: "/";
+	position: absolute;
+	right: -6px;
+}
+.product .fen ul li:last-child:after{
+	content: "";
+}
+.product .fen ul li:first-child{
+	color:red;
+}
+.product .fen ul li:first-child:after{
+	color: #000;
+}
+.product .regular-radio{
+	display: none;
+}
+.product .on{
+	width: 40px;
+	font-size: 20px;
+}
+.product .ma3{
+	margin-top: 20px;
+}
+/*product End*/
+
+
+
+/*register Start*/
+.register .regform{
+	width: 350px;
+	margin: 0 auto;
+	
+	border-radius: 3px;
+}
+.register .f1{
+	max-width: 250px;
+    margin: 0 auto;
+}
+.register a{
+	margin-left: 25px;
+}
+.register sub{
+	margin-top: 10px;
+	
+}
+html,body{
+	height: 100%;
+
+}
+.register .main{
+	height: 80%;
+}
+
+/*register End*/
+
+
+/*login Start*/
+.login .loform{
+	width: 350px;
+	margin:0 auto;
+	
+	border-radius: 3px;
+}
+.login .f2{
+	max-width: 250px;
+	margin: 0 auto;
+}
+.login a{
+	color: #888;
+	margin-left: 20px;
+}
+.login .main{
+	height: 80%;
+}
+/*login End*/
+
+/*shoppingcart Start*/
+.shoppingcart  table td{
+	vertical-align: middle !important;
+	text-align: center;
+}
+.shoppingcart  table input{
+	text-align: center;
+}
+.shoppingcart  table th{
+	text-align: center;
+}
+.shoppingcart .main{
+	height: 80%;
+}
+/*shoppingcart End*/
+
+
+/*usercenter Start*/
+.people h4{
+	font-weight: bold;
+}
+.people h6{
+	font-weight: bold;
+}
+/*usercenter End*/
+/*index Start*/
+.index img{
+	width:100%;
+/*index End*/
+
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品详情页</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/comm.css">
+	 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="product">
+<div class="container-fluid">
+  <nav class="navbar navbar-inverse">
+   <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">首页</a> -->
+      <a class="navbar-brand" href="#">
+      	<img src="img/logo.jpg" alt="logo" style="width: 25px">
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html">首页</a></li>
+        <li class="active"><a href="#">商品详情</a></li>
+        <li ><a href="shoppingcart.html">购物车</a></li>
+        <li ><a href="usercenter.html">个人中心</a></li>
+        <li class="dropdown">
+          <a href="usercenter.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">订单</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">代付款</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">已付款</a></li>
+          </ul>
+        </li>
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html">登录</a></li>
+        <li><a href="register.html">注册</a></li>
+      
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+ </nav>
+</div>
+<div class="container">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active" ></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+   <!--  <div class="item active">
+          <img src="img/s1.jpg" alt="First slide" >
+          <div class="carousel-caption"></div>
+          </div>
+
+          <div class="item">
+              <img src="img/s2.jpg" alt="Secrond slide" >
+              <div class="carousel-caption"></div>
+          </div> -->
+    
+    <!-- Controls -->
+  </div>
+  <div class="m">
+  <a class="left carousel-control " href="#carousel-example-generic" role="button" data-slide="prev" >
+  <span class="glyphicon glyphicon-chevron-left"  aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control " href="#carousel-example-generic" role="button" data-slide="next" >
+   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+   </div>
+  </div>
+ </div>
+ <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+ 	<p style="font-size: 22px;" class="pname"></p>
+      <div class="fen">
+        <ul class="config">
+        </ul>
+     </div> 
+  		<p style="font-size: 18px;color: red;" class="pcount"></p>
+      <form action="./addProductCart.php" method="get">
+  		<div  data-toggle="distpicker" class="form-wrapper clearfix form-group" >
+  			<select class="form-control" name="province"></select><br/>
+  			<select class="form-control" name="city"></select><br/>
+  			<select class="form-control" name="area"></select><br/>
+  			<textarea name="addr" rows="2" cols="54" class="col-lg-12 form-control" placeholder="请输入详细地址"></textarea>
+  		</div>
+  		<p style="font-size: 16px"><span style="font-size: 20px">选择版本</span>Hell20 X20十核处理器，双卡双待</p>
+
+  		<div class="size">	
+  		</div>
+  		<p style="font-size: 20px">选择颜色</p>
+  		<div class="color">
+  		</div>
+  		<p style="font-size: 20px;font-weight: bold;">总价格<span style="color: red" class="pcount"></span></p>
+     <!--  //在form表单中添加两个隐藏 -->
+      <input type="hidden" name="uid" value="">
+      <input type="hidden" name="pid" value="">
+  		<button class="btn btn-success" type="button" name="sub">去结算</button>
+    </form>
+  	</div>
+  	</div>
+  <div class="container ma3">
+   <div class="panel panel-default">
+     <div class="panel-heading">包装清单</div>
+     <div class="panel-body">
+    	<div class="thumbnail">
+         <img src="img/list.jpg" >
+       </div>
+     </div>	
+   </div>
+   <div class="panel panel-default">
+     <div class="panel-heading">售后服务</div>
+      <div class="panel-body">
+    	<div class="thumbnail">
+         <img src="img/server.png" >
+       </div>
+     </div>	
+  </div>
+ </div>
+ 
+</div>
+<footer>
+	<div class="container">
+		<p>&copy;2017 Company,Inc<span id="fontColorBlue">.Privaty</span><a href="#top" class="pull-right btn btn-link" id="fontColorBlue">Back to Top</a></p>
+	</div>
+</footer>
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/distpicker.data.js"></script>
+    <script type="text/javascript" src="js/distpicker.js"></script>
+    <script type="text/javascript">
+
+     function getCookie(name){
+        var arr = document.cookie.split("; ");
+         for(var i=0;i<arr.length;i++){
+             var cookiearr = arr[i].split("=");
+                if(cookiearr[0]==name){
+                   return cookiearr[1];
+                              } 
+                        }
+                }
+
+
+                // alert(getCookie("pid"));
+                
+                var pid=getCookie("pid");
+                var uid=getCookie("uid");
+                $("input[name=pid]").val(pid);
+                $("input[name=uid]").val(uid);
+
+
+                $.ajax({
+                  type:"get",
+                  url:"./api/data.php",
+                  data:"m=p_details&pid="+pid,
+                  dataType:"json",
+                  async:false,
+                  success:function(res){
+                    // console.log(res);
+                    var data=res.data[0];
+                    // alert(data.pimgs);
+                    var imgarr=data.pimgs.split(",");
+                    var Str="";
+                    for(var i=0;i<imgarr.length;i++){
+                      if(i==0){
+                         Str=Str+"<div class='item active'><img src='"+imgarr[i]+"'><div class='carousel-caption'></div></div>";
+                      }else{
+                        Str=Str+"<div class='item'><img src='"+imgarr[i]+"'><div class='carousel-caption'></div></div>";
+                      }
+                     
+                    }
+                    $(".carousel-inner").html(Str);
+                    //产品规格的使用
+                    //1.产品的名称
+                    $(".pname").html(data.pname);
+                    $(".config").html("<li>【"+data.keyword+"】产地:"+data.addr+"</li><li>库存："+data.snums+"</li>");
+                    $(".pcount").html(data.price);
+                    var siarr=data.size.split(",");
+                    var Str1="";
+                    for(var j=0;j<siarr.length;j++){
+                      if(j==0){
+                         Str1=Str1+"<label class='btn btn-danger' style='margin-right:5px'><input type='radio' name='size' value='"+siarr[j]+"' class='regular-radio' checked >"+siarr[j]+"</label>";
+                      }else{
+                         Str1=Str1+"<label class='btn btn-default' style='margin-right:5px'><input type='radio' name='size' value='"+siarr[j]+"' class='regular-radio' checked>"+siarr[j]+"</label>";
+                      }
+                     
+                    }
+                    $(".size").html(Str1);
+
+                   var coarr=data.color.split(",");
+                   var Str2="";
+                   for(var k=0;k<coarr.length;k++){
+                    if(k==0){
+                      Str2=Str2+"<label class='btn on' style='background-color:"+coarr[k]+";height:40px'><input type='radio' name='color' checked value='"+coarr[k]+"' class='regular-radio'></label>";
+                    }else{
+                       Str2=Str2+"<label class='btn' style='background-color:"+coarr[k]+";height:40px'><input type='radio' name='color' checked value='"+coarr[k]+"' class='regular-radio'></label>";
+                    }
+                   }
+                   $(".color").html(Str2);
+                  }
+
+                })
+                
+              
+    
+
+    	$(".size label").click(function(){
+    		$(this).addClass("btn-danger").siblings().removeClass("btn-danger");
+    		$(this).siblings().addClass("btn-default");
+    	});
+
+    	$(".color label").click(function(){
+    		$(this).addClass("on").siblings().removeClass("on");
+    	})
+
+
+      $("button[name=sub]").click(function(){
+        if($("input[name=size]").val()==""||$("input[name=color]").val()==""){
+          alert("请选择相应的尺寸和颜色");
+        }else{
+          $("form").submit();
+        }
+      })
+    </script>
+</body>
+</body>
+</html>

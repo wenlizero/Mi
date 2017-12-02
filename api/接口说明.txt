@@ -1,0 +1,124 @@
+1、用户注册 
+	请求：http://teach.thinksite.cn/api/data.php?m=regist&username=张三&password=123456
+	响应：
+	    status=0失败
+	    status=1成功
+	    $data=['status'=>0,'info'=>'信息']
+2、用户登录
+	请求：http://teach.thinksite.cn/api/data.php?m=login&username=张三&password=123456
+	响应：
+	    status=0失败
+		$data=['status'=>0,'info'=>'信息']
+	    status=1成功
+		$data=['status'=>0,'info'=>'信息',data=>array(xxx)]
+		demo:Array
+			(
+			    [status] => 1
+			    [info] => 登录成功
+			    [data] => Array
+				(
+				    [uid] => 5
+				    [username] => zhangsanfeng
+				    [password] => e10adc3949ba59abbe56e057f20f883e
+				    [mobile] => 
+				    [email] => 
+				    [admin] => 0
+				    [ifshow] => 1
+				)
+
+			)
+
+3、获取分类信息
+	请求：http://teach.thinksite.cn/api/data.php?m=getcates
+
+	响应：
+	Array
+	(
+	    [status] => 1
+	    [info] => 查询成功
+	    [data] => Array
+		(
+		    [0] => Array
+			(
+			    [pc_id] => 1
+			    [pc_name] => 服装
+			    [pc_ifshow] => 1
+			)
+
+		    [1] => Array
+			(
+			    [pc_id] => 2
+			    [pc_name] => 男装
+			    [pc_ifshow] => 1
+			)
+
+		    [2] => Array
+			(
+			    [pc_id] => 3
+			    [pc_name] => 女装
+			    [pc_ifshow] => 1
+			)
+
+4、获取产品信息
+	请求：http://teach.thinksite.cn/api/data.php?m=product&page=1&pc_id=1
+	     方法名：product
+	     参数：
+		页码page，默认值为1，介于【1-max】
+		分类编号pc_id，默认值为1
+
+	注意：默认为第一页，默认查找pc_id=1，默认每页显示4条数据
+
+	响应：
+	   成功：
+		$data = [
+			'status'=>1,
+			'info'=>"查询成功",
+			'countpage'=>$totalpages,
+			'curpage'=>$page,
+			'data'=>$data
+		];
+	   分类不存在：
+		Array
+			(
+			    [status] => 0
+			    [info] => 无法查询到该分类
+			)
+
+5、获取产品详情
+
+	请求：http://teach.thinksite.cn/api/data.php?m=p_details&pid=1	
+	参数：pid产品编号
+
+	响应：
+	   错误：	$data[
+				'status'=>0,
+				'info'=>'产品编号输入错误！'
+			];
+	   正确：
+		$data=[
+			'status'=>0,
+			'info'=>'查询成功',
+			'data'=>$list
+		];
+		
+
+
+6、获取个人信息
+
+	请求：http://teach.thinksite.cn/api/data.php?m=userinfo&uid=1	
+	参数：uid 用户编号
+	
+	响应：
+		$data=[
+			'status'=>0,
+			'ifno'=>"用户编号错误"
+		];
+		$data=[
+			'status'=>0,
+			'info'=>"该用户已被禁用"
+		];
+		$data=[
+			'status'=>1,
+			'info'=>"查询成功",
+			'data'=>$list
+		];
